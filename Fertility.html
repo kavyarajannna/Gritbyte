@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fertilite</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+        body {
+            margin: 0;
+            padding-top: 80px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: #ffffff;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        #logo img {
+            max-width: 100%;
+            height: auto;
+            animation: moveRight 2s ease-out;
+        }
+
+        @keyframes moveRight {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        @media only screen and (max-width: 600px) {
+            body {
+                padding-top: 50px;
+                margin-top: 50px;
+            }
+
+            header {
+                padding: 5px;
+            }
+
+            #logo img {
+                width: 200px;
+            }
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        /* Download Section */
+        .download-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .download-button {
+            background-color: #7e3a73;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .download-button:hover {
+            background-color: #954c8b;
+        }
+
+        /* Our Services Section */
+        .our-services-section {
+            text-align: center;
+            margin-top: 30px;
+            background-color: #f4f6f9;
+            padding-right:20px;
+            padding-left :20px;
+            padding-top:30px;
+            padding-bottom:30px;
+        }
+
+        .our-services-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .services-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .services-columns {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .service-column {
+            text-align: center;
+        }
+
+        .service-image {
+            width: 80%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .service-text {
+            margin-top: 15px;
+        }
+
+        /* service section end */
+
+        
+
+
+       /* Style for the section containing the slideshow */
+        /* Style for the section containing the slideshow */
+        .image-section {
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            position: relative;
+            height: 400px; /* Adjust the section height to your liking */
+        }
+        
+        .swiper-container {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        
+        /* Style for Swiper navigation buttons */
+        
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff; /* Text color for arrow marks */
+            font-size: 24px; /* Adjust the font size if needed */
+            /*background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            height: 100%; /* Set the height to 100% of the parent container */
+            width: 40px; /* Set the default width or your preferred width */
+            position: absolute;
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Add smooth transition */
+        }
+
+        /* Adjust the color of the active button */
+        .swiper-button-prev.swiper-button-black,
+        .swiper-button-next.swiper-button-black {
+            color: white; /* Set the desired color for active button */
+        }
+
+        
+
+       /* Style for Swiper pagination */
+        .swiper-pagination {
+            position: absolute;
+            bottom: 10px; /* Adjust the distance from the bottom */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: #ddd; /* Inactive bullet color */
+            margin: 0 5px; /* Adjust the gap between bullets */
+            opacity: 1;
+            transition: background-color 0.3s ease;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: rgb(0, 0, 0) !important; /* Active bullet color */
+        }
+
+
+        /* slide image end */
+
+
+        
+
+        /* Testimonial start */
+        .testimonials {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0px;
+        }
+
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            width: 200px;
+            height: 150px;
+            margin-bottom: 20px;
+            /*border: 2px solid #000;*/
+            border-radius: 20px;
+        }
+
+        .video-container:hover iframe {
+            transform: scale(1.2);
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            transition: transform 0.3s ease;
+            border-radius: 8px;
+        }
+
+        .see-video-button {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #d3ccd2;
+            color: #000; /* Text color */
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px 0 0 0;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .see-video-button:hover {
+            background-color: #bfb5c1; /* Darker color on hover */
+        }
+
+        h2 {
+            text-align: center;
+        }
+        /* testimonial end */
+
+
+
+        /* Locations Section */
+        .locations-section {
+            text-align: center;
+            margin-top: 30px;
+            background-color: black;
+            color: white;
+            font-family: 'GothamRounded', sans-serif !important;
+            padding-top: 20px;
+            padding-bottom:20px;
+            padding-right:40px;
+            padding-left:40px;
+            
+        }
+
+        .location-block {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer; /* Add cursor style for better user experience */
+            transition: transform 0.3s ease, color 0.3s ease; /* Add smooth transition */
+        }
+        
+        .location-block:hover {
+            transform: scale(1.1); /* Adjust the scale factor as desired */
+            color: #ffffff; /* Change the color on hover */
+        }
+
+        h2 {
+            text-align: center;
+        }
+        /* location end  */
+
+
+
+
+        /* Copyright Section */
+        .copyright-section {
+            text-align: center;
+            padding: 10px;
+            background: #929aab;
+            color: #000;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div id="logo">
+            <img src="assets/fertilator.png" alt="Company Logo" width="300">
+        </div>
+    </header>
+
+    <!-- Download Section -->
+    <!-- <section class="download-section">
+        <button class="download-button" onclick="downloadBroucher()">Download Broucher</button>
+        <div>
+            <img src="assets\Fertilatormachine.png" alt="Image">
+        </div>
+    </section> -->
+    
+
+    
+    <!-- Our Services Section -->
+<section class="our-services-section">
+    <div style="font-size: 20px;" class="our-services-title">
+        <h2>Our Services</h2>
+    </div>
+    <div class="services-description">First step towards infertility is correct diagnosis and NOT treatment.</div>
+
+    <!-- Service Columns -->
+    <div class="services-columns">
+        <!-- Service Column 1 -->
+        <div class="service-column">
+            <img class="service-image" src="/assets/ovum.png" alt="Service Image">
+            <div class="service-text">Ovum Pickup Simulator</div>
+        </div>
+
+        <!-- Service Column 2 -->
+        <div class="service-column">
+            <img class="service-image" src="/assets/hysteroscopy.png" alt="Service Image">
+            <div class="service-text">Embryo Transfer Simulator</div>
+        </div>
+
+        <!-- Service Column 3 -->
+        <div class="service-column">
+            <img class="service-image" src="/assets/hysteroscopy.png" alt="Service Image">
+            <div class="service-text">Hysteroscopy Simulator</div>
+        </div>
+
+        <!-- Service Column 4 -->
+        <div class="service-column">
+            <img class="service-image" style="width:100%; height:500px;" src="\assets\Fertilatormachine.png" alt="Service Image">
+        </div>
+    </div>
+
+    <!-- Download Brochure Button -->
+    <div class="service-column">
+        <button class="download-button" style="margin-left:25px;" onclick="downloadBroucher()">Download Brochure</button>
+    </div>
+</section>
+
+
+    
+     <!-- slideshow of images  -->
+   
+
+
+<hr style="width:100%;">
+
+
+     <!-- Section with Swiper slideshow -->
+     <section class="image-section">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="\assets\image1.jpg" alt="Image 1"></div>
+                <div class="swiper-slide"><img src="\assets\image1.jpg" alt="Image 2"></div>
+                <div class="swiper-slide"><img src="\assets\image2.jpg" alt="Image 3"></div>
+                <div class="swiper-slide"><img src="\assets\image3.jpg" alt="Image 4"></div>
+                <div class="swiper-slide"><img src="\assets\image4.jpg" alt="Image 5"></div>
+                <div class="swiper-slide"><img src="\assets\image5.jpg" alt="Image 6"></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next swiper-button-black"></div>
+            <div class="swiper-button-prev swiper-button-black"></div>
+        </div>
+    </section>
+
+
+    <section><h2 style="text-align:center;">Testimonials</h2></section>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+       
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/PDJFyqLdjSY" frameborder="0" allowfullscreen></iframe>
+            <button class="see-video-button" onclick="playVideo('PDJFyqLdjSY')">See Video</button>
+        </div>
+    
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/9buYZC395F4" frameborder="0" allowfullscreen></iframe>
+            <button class="see-video-button" onclick="playVideo('9buYZC395F4')">See Video</button>
+        </div>
+    
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/ZjLYEahpK_Q" frameborder="0" allowfullscreen></iframe>
+            <button class="see-video-button" onclick="playVideo('PDJFyqLdjSY')">See Video</button>
+        </div>
+    
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" frameborder="0" allowfullscreen></iframe>
+            <button class="see-video-button" onclick="playVideo('PDJFyqLdjSY')">See Video</button>
+        </div>
+    
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/VIDEO_ID_5" frameborder="0" allowfullscreen></iframe>
+            <button class="see-video-button" onclick="playVideo('PDJFyqLdjSY')">See Video</button>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section class="locations-section">
+        <h2>Locations</h2><hr style="width:47%;">
+        <div class="location-block">Belgium<br><br>Global Head Office</div>
+        <div class="location-block">U.K.<br><br>Founders Office</div>
+        <div class="location-block">India<br><br>Development Centre</div>
+        <div class="location-block">U.A.E.<br><br>Regional Representative Office</div>
+    </section>
+
+    <!-- Copyright Section -->
+    <section class="copyright-section">
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </section>
+
+
+    <!-- script for download vroucher button -->
+    <script>
+        function downloadBroucher() 
+        {
+            var brochureUrl = 'fertilator.pdf';
+            var a = document.createElement('a');
+            a.href = brochureUrl;
+            a.download = 'fertilator.pdf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+
+
+
+
+
+
+<!-- script for slideshow -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            loop: true,
+            autoplay: {
+                delay: 2000,
+            },
+        });
+    });
+</script>
+
+
+
+    
+
+
+
+    
+
+</body>
+
+</html>
